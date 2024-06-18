@@ -1,41 +1,20 @@
-
-# Compiled class files
-*.class
-
-# Log files
-*.log
-
-# Local configuration files (may contain sensitive information such as database passwords)
-*.properties
-
-# IntelliJ IDEA specific
-.idea/
-*.iml
-*.iws
-
-# Build files
-/target/
-/out/
-
-# Gradle files
-.gradle/
 build/
-
-# Other
-*.bak
-*.swp
-*~
-*.tmp
-*.temp
-*.tmp.*
-log.txt
-*.log
-*.seed
-*.iml
 *.ipr
+run/
 *.iws
-.DS_Store
+out/
+*.iml
+.gradle/
+output/
+bin/
+libs/
+.architectury-transformer/
+
 .classpath
 .project
-.settings/
-bin/
+.idea/
+classes/
+.metadata
+.vscode
+.settings
+*.launch
