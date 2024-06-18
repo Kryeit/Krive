@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "kryeitdrip",
+  "version": "${version}",
+  "name": "KryeitDrip",
+  "description": "",
+  "authors": ["MuriPlz"],
+  "contact": {
+    "repo": "https://github.com/Kryeit/KryeitDrip"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/kryeitdrip/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "server": [
+      "com.kryeit.kryeitdrip.KryeitDrip"
+    ]
+  },
+  "mixins": [
+    "kryeitdrip.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "~${minecraft_version}"
+  }
+}

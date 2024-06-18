@@ -1,0 +1,41 @@
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Local configuration files (may contain sensitive information such as database passwords)
+*.properties
+
+# IntelliJ IDEA specific
+.idea/
+*.iml
+*.iws
+
+# Build files
+/target/
+/out/
+
+# Gradle files
+.gradle/
+build/
+
+# Other
+*.bak
+*.swp
+*~
+*.tmp
+*.temp
+*.tmp.*
+log.txt
+*.log
+*.seed
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.classpath
+.project
+.settings/
+bin/
