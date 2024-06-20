@@ -22,7 +22,7 @@ public class Clothe {
         return permission;
     }
 
-    public static Clothe kryeitHoodie() {
+    public static Clothe hoodie() {
         ItemStack hoodie = new ItemStack(Items.LEATHER_CHESTPLATE)
                 .setCustomName(Text.of("Kryeit hoodie"));
         hoodie.addHideFlag(ItemStack.TooltipSection.MODIFIERS);

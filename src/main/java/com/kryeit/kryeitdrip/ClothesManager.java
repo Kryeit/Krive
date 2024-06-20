@@ -9,6 +9,7 @@ public class ClothesManager {
 
     private ClothesManager() {
         this.clothesList = new ArrayList<>();
+        this.clothesList.add(Clothe.hoodie());
     }
 
     public static ClothesManager getInstance() {
