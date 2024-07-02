@@ -8,10 +8,12 @@ import net.minecraft.text.Text;
 public class Clothe {
     private final ItemStack item;
     private final String permission;
+    private final String name;
 
-    public Clothe(ItemStack item, String permission) {
+    public Clothe(ItemStack item, String permission, String name) {
         this.item = item;
         this.permission = permission;
+        this.name = name;
     }
 
     public ItemStack getItem() {
@@ -20,6 +22,10 @@ public class Clothe {
 
     public String getPermission() {
         return permission;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public static Clothe hoodie() {
@@ -31,6 +37,6 @@ public class Clothe {
             ((DyeableArmorItem) hoodie.getItem()).setColor(hoodie, 0xFFFFFF);
         }
 
-        return new Clothe(hoodie, "kryeitdrip.hoodie");
+        return new Clothe(hoodie, "kryeitdrip.hoodie", "hoodie");
     }
 }

@@ -11,7 +11,14 @@ base {
 }
 
 repositories {
-    maven { url 'https://maven.nucleoid.xyz' }
+    maven {
+        name = 'LuckPerms'
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+    maven {
+        name = 'Patbox'
+        url = 'https://maven.nucleoid.xyz'
+    }
 }
 
 dependencies {
@@ -25,6 +32,9 @@ dependencies {
 
     // Patbox's server-side GUI API
     modImplementation include("eu.pb4:sgui:${project.sgui_version}")
+
+    // LuckPerms Permissions API
+    include(modImplementation("me.lucko:fabric-permissions-api:${luckperms_version}"))
 }
 
 processResources {
