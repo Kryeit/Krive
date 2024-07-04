@@ -4,7 +4,8 @@
   "package": "com.kryeit.kryeitdrip.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MinecraftServerMixin"
+    "MinecraftServerMixin",
+    "PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

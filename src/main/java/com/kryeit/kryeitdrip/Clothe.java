@@ -1,11 +1,12 @@
 package com.kryeit.kryeitdrip;
 
+import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import net.minecraft.item.DyeableArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 
-public class Clothe {
+public class Clothe extends ElementHolder {
     private final ItemStack item;
     private final String permission;
     private final String name;
