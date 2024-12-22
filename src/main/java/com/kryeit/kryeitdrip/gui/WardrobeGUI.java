@@ -2,6 +2,7 @@ package com.kryeit.kryeitdrip.gui;
 
 import com.kryeit.kryeitdrip.Clothe;
 import com.kryeit.kryeitdrip.ClotheManager;
+import com.kryeit.kryeitdrip.ui.GuiTextures;
 import eu.pb4.sgui.api.ClickType;
 import eu.pb4.sgui.api.elements.GuiElementInterface;
 import eu.pb4.sgui.api.gui.SimpleGui;
@@ -13,8 +14,8 @@ import net.minecraft.text.Text;
 public class WardrobeGUI extends SimpleGui {
 
     public WardrobeGUI(ServerPlayerEntity player) {
-        super(ScreenHandlerType.GENERIC_9X1, player, false);
-        this.setTitle(Text.literal("Merch clothes!"));
+        super(ScreenHandlerType.GENERIC_9X3, player, false);
+        this.setTitle(GuiTextures.WARDROBE.apply(Text.literal("Merch clothes!")));
 
         for (Clothe clothes : ClotheManager.getInstance().getClothesList()) {
             this.addSlot(clothes.getItem());
