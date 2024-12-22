@@ -5,15 +5,14 @@ import com.kryeit.kryeitdrip.ClotheManager;
 import eu.pb4.sgui.api.ClickType;
 import eu.pb4.sgui.api.elements.GuiElementInterface;
 import eu.pb4.sgui.api.gui.SimpleGui;
-import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
-public class ClothesGUI extends SimpleGui {
+public class WardrobeGUI extends SimpleGui {
 
-    public ClothesGUI(ServerPlayerEntity player) {
+    public WardrobeGUI(ServerPlayerEntity player) {
         super(ScreenHandlerType.GENERIC_9X1, player, false);
         this.setTitle(Text.literal("Merch clothes!"));
 

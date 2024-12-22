@@ -1,6 +1,6 @@
 package com.kryeit.kryeitdrip;
 
-import com.kryeit.kryeitdrip.commands.ClothesCommand;
+import com.kryeit.kryeitdrip.commands.WardrobeCommand;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.util.Identifier;
@@ -16,7 +16,7 @@ public class KryeitDrip implements DedicatedServerModInitializer {
 
     public void registerCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicatedServer, commandFunction) -> {
-            ClothesCommand.register(dispatcher);
+            WardrobeCommand.register(dispatcher);
         });
     }
 

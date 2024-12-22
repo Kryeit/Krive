@@ -1,10 +1,9 @@
 package com.kryeit.kryeitdrip.commands;
 
-import com.kryeit.kryeitdrip.gui.ClothesGUI;
+import com.kryeit.kryeitdrip.gui.WardrobeGUI;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
-import eu.pb4.sgui.api.gui.SimpleGui;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -12,7 +11,7 @@ import net.minecraft.text.Text;
 
 import java.util.function.Supplier;
 
-public class ClothesCommand {
+public class WardrobeCommand {
     public static int execute(CommandContext<ServerCommandSource> context) {
         ServerCommandSource source = context.getSource();
         ServerPlayerEntity player = source.getPlayer();
@@ -23,14 +22,14 @@ public class ClothesCommand {
             return 0;
         }
 
-        new ClothesGUI(player);
+        new WardrobeGUI(player);
 
         return Command.SINGLE_SUCCESS;
     }
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(CommandManager.literal("clothes")
-                .executes(ClothesCommand::execute)
+        dispatcher.register(CommandManager.literal("wardrobe")
+                .executes(WardrobeCommand::execute)
         );
     }
 }
