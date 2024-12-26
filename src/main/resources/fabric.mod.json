@@ -12,7 +12,7 @@
   "icon": "assets/krive/icon.png",
   "environment": "server",
   "entrypoints": {
-    "server": [
+    "main": [
       "com.kryeit.krive.Krive"
     ]
   },

@@ -9,8 +9,8 @@ import net.minecraft.text.Text;
 public class WardrobeGUI extends SimpleGui {
 
     public WardrobeGUI(ServerPlayerEntity player) {
-        super(ScreenHandlerType.GENERIC_9X3, player, false);
-        this.setTitle(GuiTextures.WARDROBE.apply(Text.literal("Merch clothes!")));
+        super(ScreenHandlerType.GENERIC_9X6, player, false);
+        this.setTitle(GuiTextures.WARDROBE.apply(Text.literal("Wardrobe")));
 
 
         this.open();
