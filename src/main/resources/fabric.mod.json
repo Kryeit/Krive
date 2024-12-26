@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "id": "kryeitdrip",
+  "id": "krive",
   "version": "${version}",
-  "name": "KryeitDrip",
+  "name": "Krive",
   "description": "",
   "authors": ["MuriPlz"],
   "contact": {
     "repo": "https://github.com/Kryeit/KryeitDrip"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/kryeitdrip/icon.png",
+  "icon": "assets/krive/icon.png",
   "environment": "server",
   "entrypoints": {
     "server": [
-      "com.kryeit.kryeitdrip.KryeitDrip"
+      "com.kryeit.krive.Krive"
     ]
   },
   "mixins": [
-    "kryeitdrip.mixins.json"
+    "krive.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

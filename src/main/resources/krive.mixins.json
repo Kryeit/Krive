@@ -1,11 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.kryeit.kryeitdrip.mixin",
+  "package": "com.kryeit.krive.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MinecraftServerMixin",
-    "PlayerEntityMixin"
+    "MinecraftServerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

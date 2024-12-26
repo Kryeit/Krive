@@ -1,6 +1,6 @@
-package com.kryeit.kryeitdrip.commands;
+package com.kryeit.krive.commands;
 
-import com.kryeit.kryeitdrip.gui.WardrobeGUI;
+import com.kryeit.krive.gui.WardrobeGUI;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;

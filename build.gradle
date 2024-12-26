@@ -36,6 +36,7 @@ dependencies {
     // Polymer API
     modImplementation 'eu.pb4:polymer-core:0.5.9+1.20.1'
     modImplementation 'eu.pb4:polymer-virtual-entity:0.5.9+1.20.1'
+    modImplementation 'eu.pb4:polymer-resource-pack:0.5.19+1.20.1'
 
     // LuckPerms Permissions API
     include(modImplementation("me.lucko:fabric-permissions-api:${luckperms_version}"))

@@ -1,7 +1,5 @@
-package com.kryeit.kryeitdrip;
+package com.kryeit.krive;
 
-import com.kryeit.kryeitdrip.util.SkinUtil;
-import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.util.ArrayList;
@@ -32,9 +30,5 @@ public class ClotheManager {
     }
 
     public void equipClothe(ServerPlayerEntity player, Clothe clothe) {
-        if (Permissions.check(player, clothe.getPermission(), true)) {
-            // Apply the clothing overlay
-            SkinUtil.applyClothingOverlay(player, clothe.getName());
-        }
     }
 }

@@ -1,4 +1,4 @@
-package com.kryeit.kryeitdrip;
+package com.kryeit.krive;
 
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import net.minecraft.item.DyeableArmorItem;

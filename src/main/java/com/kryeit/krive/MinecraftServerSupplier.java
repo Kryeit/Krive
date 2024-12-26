@@ -1,4 +1,4 @@
-package com.kryeit.kryeitdrip;
+package com.kryeit.krive;
 
 import net.minecraft.server.MinecraftServer;
 

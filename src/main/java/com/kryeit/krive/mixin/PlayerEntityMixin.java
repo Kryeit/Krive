@@ -1,10 +1,10 @@
-package com.kryeit.kryeitdrip.mixin;
+package com.kryeit.krive.mixin;
 
 import eu.pb4.polymer.virtualentity.api.ElementHolder;
 import eu.pb4.polymer.virtualentity.api.attachment.EntityAttachment;
 import eu.pb4.polymer.virtualentity.api.elements.MarkerElement;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Pair;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,10 +35,7 @@ public class PlayerEntityMixin {
     private MarkerElement shoes;
 
     @Unique
-    private MarkerElement leftHand;
-
-    @Unique
-    private MarkerElement rightHand;
+    private Pair<MarkerElement, MarkerElement> hands;
 
 
     @Inject(method = "<init>*", at = @At("RETURN"))
@@ -46,7 +43,7 @@ public class PlayerEntityMixin {
         ServerPlayerEntity player = (ServerPlayerEntity) (Object) this;
         holder = new ElementHolder();
 
-        List<MarkerElement> clothes = List.of(skin, hat, hoodie, pants, shoes, leftHand, rightHand);
+        List<MarkerElement> clothes = List.of(skin, hat, hoodie, pants, shoes, hands.getLeft(), hands.getRight());
 
         for (MarkerElement clothe : clothes) {
             if (clothe == null) continue;
