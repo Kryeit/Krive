@@ -100,3 +100,16 @@ publishing {
         // retrieving dependencies.
     }
 }
+
+loom {
+    runs {
+        datagen {
+            server()
+            name = "Data Generation"
+            runDir = "build/datagen"
+            vmArg("-Dfabric-api.datagen")
+            vmArg("-Dfabric-api.datagen.modid=krive")
+            vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
+        }
+    }
+}

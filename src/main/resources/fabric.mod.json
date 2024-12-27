@@ -8,12 +8,15 @@
   "contact": {
     "repo": "https://github.com/Kryeit/Krive"
   },
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/krive/icon.png",
   "environment": "server",
   "entrypoints": {
     "main": [
       "com.kryeit.krive.Krive"
+    ],
+    "fabric-datagen":[
+      "com.kryeit.krive.datagen.DataGenInit"
     ]
   },
   "mixins": [
