@@ -17,10 +17,10 @@ public class WardrobeGUI extends SimpleGui {
 
         this.setSlot(51, GuiTextures.PREVIOUS_BUTTON.get().unbreakable().setCallback((clickType) -> {
             System.out.println("Previous Page");
-        }));
+        }).setName(Text.literal("Previous page")));
         this.setSlot(53, GuiTextures.NEXT_BUTTON.get().unbreakable().setCallback((clickType) -> {
             System.out.println("Next Page");
-        }));
+        }).setName(Text.literal("Next page")));
 
         this.open();
     }
