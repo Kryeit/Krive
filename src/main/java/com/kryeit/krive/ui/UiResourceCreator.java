@@ -9,25 +9,31 @@ package com.kryeit.krive.ui;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.kryeit.krive.Krive;
+import eu.pb4.mapcanvas.api.core.CanvasColor;
+import eu.pb4.mapcanvas.api.core.CanvasImage;
+import eu.pb4.mapcanvas.api.font.DefaultFonts;
+import eu.pb4.mapcanvas.api.utils.CanvasUtils;
 import eu.pb4.polymer.resourcepack.api.PolymerModelData;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.sgui.api.elements.GuiElementBuilder;
-import it.unimi.dsi.fastutil.chars.Char2IntMap;
-import it.unimi.dsi.fastutil.chars.Char2IntOpenHashMap;
-import it.unimi.dsi.fastutil.chars.Char2ObjectMap;
-import it.unimi.dsi.fastutil.chars.Char2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.chars.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 
+import javax.imageio.ImageIO;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.Supplier;
 
 public class UiResourceCreator {
@@ -50,7 +56,7 @@ public class UiResourceCreator {
     private static final Char2IntMap SPACES = new Char2IntOpenHashMap();
     private static final Char2ObjectMap<Identifier> TEXTURES = new Char2ObjectOpenHashMap<>();
     private static char character = 'a';
-
+    private static final List<String> TEXTURES_NUMBERS = new ArrayList<>();
     private static final char CHEST_SPACE0 = character++;
     private static final char CHEST_SPACE1 = character++;
 
@@ -62,6 +68,30 @@ public class UiResourceCreator {
     public static Supplier<GuiElementBuilder> icon32(String path) {
         var model = genericIconRaw(Items.ALLIUM, path, X32_MODEL);
         return () -> new GuiElementBuilder(model.item()).setName(Text.empty()).hideFlags().setCustomModelData(model.value());
+    }
+
+    public static IntFunction<GuiElementBuilder> icon32Color(String path) {
+        var model = genericIconRaw(Items.LEATHER_LEGGINGS, path, X32_MODEL);
+        return (i) -> {
+            var b = new GuiElementBuilder(model.item()).setName(Text.empty()).hideFlags().setCustomModelData(model.value());
+            var display = new NbtCompound();
+            display.putInt("color", i);
+            b.getOrCreateNbt().put("display", display);
+            return b;
+        };
+    }
+
+    public static IntFunction<GuiElementBuilder>[] createNumbers(String prefix) {
+        var list = new ArrayList<IntFunction<GuiElementBuilder>>();
+
+        for (int i = 0; i < 10; i++) {
+            list.add(icon32Color("numbers/" + prefix + i));
+        }
+
+        TEXTURES_NUMBERS.add(prefix);
+
+        //noinspection unchecked
+        return list.toArray((IntFunction<GuiElementBuilder>[]) new IntFunction[0]);
     }
 
     public static PolymerModelData genericIconRaw(Item item, String path, String base) {
@@ -99,6 +129,14 @@ public class UiResourceCreator {
                     ITEM_TEMPLATE.replace("|ID|", texture.getLeft().modelPath().toString()).replace("|BASE|", texture.getRight()).getBytes(StandardCharsets.UTF_8));
         }
 
+        for (var value : TEXTURES_NUMBERS) {
+            try {
+                generateNumbers(assetWriter, value);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
+
         var fontBase = new JsonObject();
         var providers = new JsonArray();
 
@@ -128,6 +166,23 @@ public class UiResourceCreator {
         assetWriter.accept("assets/krive/font/gui.json", fontBase.toString().getBytes(StandardCharsets.UTF_8));
     }
 
+    private static void generateNumbers(BiConsumer<String, byte[]> assetWriter, String right) throws IOException {
+        for (int i = 0; i < 10; i++) {
+            var image = new CanvasImage(32, 32);
+            int code = 48 + i;
+            var width = DefaultFonts.VANILLA.getGlyphWidth(code, 8 * 3, 0);
+            if (right.equals("shadow/")) {
+                DefaultFonts.VANILLA.drawGlyph(image, code, 14 - width / 2 + 3, 5 + 3, 8 * 3, 0, CanvasColor.WHITE_GRAY_LOWEST);
+            }
+            DefaultFonts.VANILLA.drawGlyph(image, code, 14 - width / 2, 5, 8 * 3, 0, CanvasColor.WHITE_HIGH);
+
+            var buf = new ByteArrayOutputStream();
+
+            ImageIO.write(CanvasUtils.toImage(image), "png", buf);
+
+            assetWriter.accept("assets/krive/textures/sgui/elements/numbers/" + right + i + ".png", buf.toByteArray());
+        }
+    }
 
     private record TextBuilders(Text base) implements Function<Text, Text> {
         @Override
