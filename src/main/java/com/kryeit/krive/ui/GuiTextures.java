@@ -18,8 +18,8 @@ public class GuiTextures {
 
     public static final Function<Text, Text> WARDROBE = background("wardrobe");
 
-    public static final Supplier<GuiElementBuilder> PREVIOUS_BUTTON = icon16("button/previous");
-    public static final Supplier<GuiElementBuilder> NEXT_BUTTON = icon16("button/next");
+    public static final Supplier<GuiElementBuilder> PREVIOUS_BUTTON = icon32("button/previous");
+    public static final Supplier<GuiElementBuilder> NEXT_BUTTON = icon32("button/next");
 
     public static void register() {
 
