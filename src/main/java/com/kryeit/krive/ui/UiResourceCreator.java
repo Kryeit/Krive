@@ -16,7 +16,10 @@ import eu.pb4.mapcanvas.api.utils.CanvasUtils;
 import eu.pb4.polymer.resourcepack.api.PolymerModelData;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.sgui.api.elements.GuiElementBuilder;
-import it.unimi.dsi.fastutil.chars.*;
+import it.unimi.dsi.fastutil.chars.Char2IntMap;
+import it.unimi.dsi.fastutil.chars.Char2IntOpenHashMap;
+import it.unimi.dsi.fastutil.chars.Char2ObjectMap;
+import it.unimi.dsi.fastutil.chars.Char2ObjectOpenHashMap;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -70,8 +73,8 @@ public class UiResourceCreator {
         return () -> new GuiElementBuilder(model.item()).setName(Text.empty()).hideFlags().setCustomModelData(model.value());
     }
 
-    public static IntFunction<GuiElementBuilder> icon32Color(String path) {
-        var model = genericIconRaw(Items.LEATHER_LEGGINGS, path, X32_MODEL);
+    public static IntFunction<GuiElementBuilder> icon16Color(String path) {
+        var model = genericIconRaw(Items.LEATHER_LEGGINGS, path, BASE_MODEL);
         return (i) -> {
             var b = new GuiElementBuilder(model.item()).setName(Text.empty()).hideFlags().setCustomModelData(model.value());
             var display = new NbtCompound();
@@ -85,7 +88,7 @@ public class UiResourceCreator {
         var list = new ArrayList<IntFunction<GuiElementBuilder>>();
 
         for (int i = 0; i < 10; i++) {
-            list.add(icon32Color("numbers/" + prefix + i));
+            list.add(icon16Color("numbers/" + prefix + i));
         }
 
         TEXTURES_NUMBERS.add(prefix);

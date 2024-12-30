@@ -4,7 +4,6 @@ import com.kryeit.krive.commands.WardrobeCommand;
 import com.kryeit.krive.ui.GuiTextures;
 import com.kryeit.krive.ui.UiResourceCreator;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
-import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;

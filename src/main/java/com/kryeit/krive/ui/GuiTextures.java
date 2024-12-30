@@ -24,7 +24,6 @@ public class GuiTextures {
 
     public static final IntFunction<GuiElementBuilder>[] NUMBERS_FLAT = createNumbers("flat/");
     public static final IntFunction<GuiElementBuilder>[] NUMBERS_SHADOW = createNumbers("shadow/");
-
     public static void register() {
 
     }
